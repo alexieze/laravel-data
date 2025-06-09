@@ -3,6 +3,7 @@
 use Illuminate\Contracts\Support\Responsable;
 use Illuminate\Validation\ValidationException;
 use Spatie\LaravelData\Concerns\AppendableData;
+use Spatie\LaravelData\Concerns\ApplicableData;
 use Spatie\LaravelData\Concerns\BaseData;
 use Spatie\LaravelData\Concerns\ContextableData;
 use Spatie\LaravelData\Concerns\EmptyData;
@@ -12,6 +13,7 @@ use Spatie\LaravelData\Concerns\TransformableData;
 use Spatie\LaravelData\Concerns\ValidateableData;
 use Spatie\LaravelData\Concerns\WrappableData;
 use Spatie\LaravelData\Contracts\AppendableData as AppendableDataContract;
+use Spatie\LaravelData\Contracts\ApplicableData as ApplicableDataContract;
 use Spatie\LaravelData\Contracts\BaseData as BaseDataContract;
 use Spatie\LaravelData\Contracts\EmptyData as EmptyDataContract;
 use Spatie\LaravelData\Contracts\IncludeableData as IncludeableDataContract;
@@ -26,7 +28,7 @@ use Spatie\LaravelData\Tests\Fakes\SimpleDto;
 use Spatie\LaravelData\Tests\Fakes\SimpleResource;
 
 it('also works by using traits and interfaces, skipping the base data class', function () {
-    $data = new class ('') implements Responsable, AppendableDataContract, BaseDataContract, TransformableDataContract, IncludeableDataContract, ResponsableDataContract, ValidateableDataContract, WrappableDataContract, EmptyDataContract {
+    $data = new class ('') implements Responsable, AppendableDataContract, BaseDataContract, TransformableDataContract, IncludeableDataContract, ResponsableDataContract, ValidateableDataContract, WrappableDataContract, EmptyDataContract, ApplicableDataContract {
         use ResponsableData;
         use IncludeableData;
         use AppendableData;
@@ -36,6 +38,7 @@ it('also works by using traits and interfaces, skipping the base data class', fu
         use BaseData;
         use EmptyData;
         use ContextableData;
+        use ApplicableData;
 
         public function __construct(public string $string)
         {

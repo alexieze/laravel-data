@@ -9,6 +9,7 @@ use Illuminate\Pagination\CursorPaginator;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Collection;
 use Spatie\LaravelData\Attributes\DataCollectionOf;
+use Spatie\LaravelData\Contracts\ApplicableData;
 use Spatie\LaravelData\Contracts\AppendableData;
 use Spatie\LaravelData\Contracts\BaseData;
 use Spatie\LaravelData\Contracts\ContextableData;
@@ -792,6 +793,7 @@ it(
                  Jsonable::class,
                  Responsable::class,
                  Arrayable::class,
+                 ApplicableData::class,
                  AppendableData::class,
                  ContextableData::class,
                  BaseData::class,
@@ -801,6 +803,7 @@ it(
                  ValidateableData::class,
                  WrappableData::class,
                  EmptyData::class,
+
              ],
          ], // expected
     ];

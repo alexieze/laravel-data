@@ -4,6 +4,7 @@ namespace Spatie\LaravelData;
 
 use Illuminate\Contracts\Support\Responsable;
 use Spatie\LaravelData\Concerns\AppendableData;
+use Spatie\LaravelData\Concerns\ApplicableData;
 use Spatie\LaravelData\Concerns\BaseData;
 use Spatie\LaravelData\Concerns\ContextableData;
 use Spatie\LaravelData\Concerns\EmptyData;
@@ -13,6 +14,7 @@ use Spatie\LaravelData\Concerns\TransformableData;
 use Spatie\LaravelData\Concerns\ValidateableData;
 use Spatie\LaravelData\Concerns\WrappableData;
 use Spatie\LaravelData\Contracts\AppendableData as AppendableDataContract;
+use Spatie\LaravelData\Contracts\ApplicableData as ApplicableDataContract;
 use Spatie\LaravelData\Contracts\BaseData as BaseDataContract;
 use Spatie\LaravelData\Contracts\ContextableData as ContextableDataContract;
 use Spatie\LaravelData\Contracts\EmptyData as EmptyDataContract;
@@ -22,7 +24,7 @@ use Spatie\LaravelData\Contracts\TransformableData as TransformableDataContract;
 use Spatie\LaravelData\Contracts\ValidateableData as ValidateableDataContract;
 use Spatie\LaravelData\Contracts\WrappableData as WrappableDataContract;
 
-abstract class Data implements Responsable, AppendableDataContract, BaseDataContract, TransformableDataContract, ContextableDataContract, IncludeableDataContract, ResponsableDataContract, ValidateableDataContract, WrappableDataContract, EmptyDataContract
+abstract class Data implements Responsable, AppendableDataContract, ApplicableDataContract, BaseDataContract, TransformableDataContract, ContextableDataContract, IncludeableDataContract, ResponsableDataContract, ValidateableDataContract, WrappableDataContract, EmptyDataContract
 {
     use ResponsableData;
     use IncludeableData;
@@ -33,4 +35,5 @@ abstract class Data implements Responsable, AppendableDataContract, BaseDataCont
     use BaseData;
     use EmptyData;
     use ContextableData;
+    use ApplicableData;
 }
