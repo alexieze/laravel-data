@@ -7,7 +7,6 @@ use ReflectionProperty;
 
 trait ApplicableData
 {
-
     public function apply(?array $specificKeys = null, bool $strict = true): static
     {
         $additionalData = $this->getAdditionalData();
@@ -83,7 +82,7 @@ trait ApplicableData
     {
         $reflection = new ReflectionClass($this);
         $properties = $reflection->getProperties(ReflectionProperty::IS_PUBLIC);
-        $propertyNames = array_map(fn($prop) => $prop->getName(), $properties);
+        $propertyNames = array_map(fn ($prop) => $prop->getName(), $properties);
         $propertyNames = array_diff($propertyNames, ['_additional', '_dataContext']);
 
         return array_intersect_key($data, array_flip($propertyNames));
@@ -91,7 +90,7 @@ trait ApplicableData
 
     public function hasApplicableData(): bool
     {
-        return !empty($this->getAdditionalData());
+        return ! empty($this->getAdditionalData());
     }
 
     public function getApplicableKeys(): array
@@ -117,7 +116,7 @@ trait ApplicableData
         return [
             'current' => $this->toArray(),
             'additional' => $additionalData,
-            'result' => array_merge($this->toArray(), $additionalData)
+            'result' => array_merge($this->toArray(), $additionalData),
         ];
     }
 }
